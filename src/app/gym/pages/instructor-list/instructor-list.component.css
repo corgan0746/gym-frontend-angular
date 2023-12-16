@@ -1,0 +1,51 @@
+.instructors-banner {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  background-image: url("https://myownbucket-345345.s3.eu-west-2.amazonaws.com/381389_brack+ground+material+%2C+dark+and+gray++simple+tidy_xl-1024-v1-0-min.webp");
+}
+.instructors-text {
+  font-family: 'Arvo', serif;
+  font-size: 70px;
+  color: white;
+  height: 100%;
+  min-width: 1250px;
+}
+.adjust-text {
+  position: relative;
+  top: 28px;
+}
+.instructor-card {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  width: 250px;
+  border-radius: 7px;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+.max-width-text{
+  width: 370px;
+}
+.darker {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+}
+.inter{
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+@media (max-width:500px){
+  .max-width-text{
+    width: auto;
+  }
+}
+
+@media (max-width:1300px){
+  .instructors-text {
+    min-width: auto;
+    font-size: 40px;
+  }
+}
+

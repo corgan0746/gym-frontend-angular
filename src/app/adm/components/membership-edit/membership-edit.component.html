@@ -1,0 +1,49 @@
+<form [formGroup]="updateForm" (ngSubmit)="(isAdd)?add():submit()" >
+  <div class="d-flex register gap-3">
+      <h5 class="col-12 m-0">{{(isAdd)? 'Add':'Edit'}} Membership #{{membership?.id}}</h5>
+      <div class="flex-fill input-small text-center position-relative">
+        <input class="input-small flex-fill col-12 text-center" formControlName="name" type="text" placeholder="First name" name="firstName">
+      </div>
+
+      <div class="flex-fill input-small text-center position-relative">
+        <input class="input-small flex-fill col-12 text-center" formControlName="code" type="text" placeholder="Membership Code" name="code">
+      </div>
+
+      <div class="flex-fill input-small text-center position-relative">
+        <input class="input-small col-12 flex-fill text-center" formControlName="value" type="number" placeholder="Value" name="value">
+      </div>
+
+      <div class="flex-fill col-12  d-flex justify-content-around align-items-center text-center position-relative">
+        <div class="form-check form-switch col-2  text-center center-input ">
+          <input class="form-check-input" formControlName="active" type="checkbox" id="isActive" checked>
+          <label  class="form-check-label" for="isActive">Active</label>
+        </div>
+      </div>
+
+      <select *ngIf="isAdd" (change)="selectClass($event.target)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option selected>Select Class</option>
+        <option [value]="class.id" *ngFor="let class of classes; let i = index" >{{class.id}}# {{class.code}} {{class.name}}</option>
+      </select>
+
+      <div *ngIf="isAdd" class="flex-fill position-relative text-center">
+        <p class="text-danger smaller-danger-message m-0">You Must select a class before creating a membership</p>
+      </div>
+
+      <div *ngIf="!isAdd" class="flex-fill col-12  text-center position-relative">
+        <h6>Change photo</h6>
+        <input *ngIf="!photoFile" (change)="changePicture($event)" type="file" class="input-photo">
+        <div *ngIf="photoFile" >
+          <div class="col-4 mx-auto d-flex justify-content-center align-items-center m-2">
+            <app-image-display [image]="photoFile" />
+          </div>
+          <button (click)="uploadPhoto($event)" type="button" class="btn btn-sm btn-primary" >Change</button>
+        </div>
+      </div>
+
+  </div>
+  <div class="small-blank-space"></div>
+  <div class="d-inline-block col-6 text-center"><button (click)="closeWindow()" class="btn btn-primary btn-lg" type="button" >Cancel</button></div>
+  <div  class="d-inline-block col-6 text-center"><button class="btn btn-primary btn-lg" type="submit" >{{(isAdd)? "Create": "Update"}}</button></div>
+  <div class="small-blank-space"></div>
+
+</form>

@@ -1,0 +1,42 @@
+.text-in-li {
+  position: relative;
+  top: calc(50% - 11px);
+}
+.list-items {
+  flex-direction: column;
+  list-style: none;
+  color: #ffffff;
+  font-family: 'Arvo', serif;
+  font-size: large;
+}
+.list-items li {
+  height: 80px;
+  text-align: center;
+  width: 100%;
+}
+
+.clearHover{
+  color: #f1f1f1;
+  cursor: pointer;
+  transition: background, color 0.2s;
+}
+.clearHover:hover{
+  background-color: rgb(194, 194, 194);
+  color: rgb(43, 43, 43);
+  transition: color 0.2s;
+}
+.extra-element{
+  display: none;
+}
+
+@media (max-width:760px){
+  .list-items li {
+    height: 70px;
+  }
+  .text-in-li{
+    font-size: 0.8em;
+  }
+  .extra-element{
+    display: block;
+  }
+}

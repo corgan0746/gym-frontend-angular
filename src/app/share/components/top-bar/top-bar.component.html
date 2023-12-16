@@ -1,0 +1,58 @@
+<div class="whole-bar col-12">
+
+  <div class="search-side">
+      <div class=" menu-div hoverDark" (click)="toggleMenu()" [ngClass]="{'darkerBlack': openMenu}" >
+          <i class="fa-solid fa-bars fa-2xl menu-position" style="color: #ffffff;"></i>
+      </div>
+      <search-bar></search-bar>
+  </div>
+  <div class="nav-bar-menu">
+      <div class="darker d-flex">
+          <div class="nav-menu-3-items col-9 " >
+
+              <div class="col-2"></div>
+
+              <div [routerLink]="['/home']" class="col-3 item-nav-menu">
+                  <h6 class="text-white text-center m-0" >Home</h6>
+              </div>
+
+              <hr class="text-white col-3 line-separator">
+
+              <div [routerLink]="['/classes']" class="col-3 item-nav-menu" >
+                  <h6 class="text-white text-center m-0" >Classes</h6>
+              </div>
+
+              <hr class="text-white col-3 line-separator">
+
+              <div class="col-3 item-nav-menu">
+                <div *ngIf="!isAuthenticated" [routerLink]="['/auth']"  >
+                    <h6 class="text-white text-center m-0" >Loggin</h6>
+                </div>
+                <div *ngIf="isAuthenticated" [routerLink]="['/account']"  >
+                  <h6 class="text-white text-center m-0" >Account</h6>
+              </div>
+              </div>
+
+          </div>
+          <div [routerLink]="['/account']" class="profile-user mx-auto profile-color" >
+
+
+              <div class="rounded-circle circle scaleAnimation overflow-hidden">
+                  <i *ngIf="!photo" class="fa-solid fa-user fa-2xl profile-icon" style="color: #4D7FEB;" ></i>
+                  <img *ngIf="photo" [src]="aws+photo" class="w-100 h-100" />
+              </div>
+
+
+              <div class="user-info">
+                  <h6 class="text-white m-0 col-12 text-center">{{getName || "Guest"}}</h6>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="outside-side" (click)="toggleMenu()">
+    <side-menu *ngIf="openMenu" [ngClass]="{'large': openMenu}" ></side-menu>
+  </div>
+
+</div>

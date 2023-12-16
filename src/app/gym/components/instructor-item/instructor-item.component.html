@@ -1,0 +1,10 @@
+<div *ngIf="instructor" [routerLink]="['/instructor/', instructor.id]" [ngStyle]="{'background-image': 'url('+ awsBucket+ instructor.image +')'}"  class="instructor-card click bg-white">
+  <div class="instructor-description">
+      <h4 class="text-white text-desc fs-5 text-center">{{instructor.bios}}</h4>
+      <h4 class="text-white text-desc fs-5 text-center">{{instructor.firstName | titlecase}} {{instructor.lastName | titlecase}}</h4>
+      <h4 class="text-white p-2 fs-6 text-center">"Train like a champion, fight like a legend."</h4>
+  </div>
+</div>
+<div *ngIf="!instructor" class="no-instructor bg-dark rounded-pill p-2">
+  <h5 class="text-white text-center m-0">No instructor assigned</h5>
+</div>

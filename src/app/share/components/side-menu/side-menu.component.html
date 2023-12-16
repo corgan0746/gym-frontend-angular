@@ -1,0 +1,10 @@
+  <ul class="d-flex p-0 list-items"  >
+      <li [routerLink]="['/home']" class="clearHover" ><span class="text-in-li">Home</span></li>
+      <li [routerLink]="['/classes']" class="clearHover extra-element" ><span class="text-in-li">Classes</span></li>
+      <li [routerLink]="['/account/bookings']" class="clearHover"><span class="text-in-li">Bookings</span></li>
+      <li [routerLink]="['/instructors']" class="clearHover"><span class="text-in-li">Instructors</span></li>
+      <li [routerLink]="['/home']" class="clearHover"><span class="text-in-li">Locations</span></li>
+      <li [routerLink]="['/about']" class="clearHover"><span class="text-in-li">About</span></li>
+      <li [routerLink]="['/memberships']" class="clearHover"><span class="text-in-li">Memberships</span></li>
+      <li class="clearHover" (click)="logout()" ><span class="text-in-li">Logout</span></li>
+  </ul>

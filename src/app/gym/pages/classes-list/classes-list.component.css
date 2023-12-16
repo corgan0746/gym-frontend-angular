@@ -1,0 +1,51 @@
+
+.details-t2{
+  font-size: 24px;
+}
+.blank-separator {
+  height: 50px;
+}
+
+.class-item {
+  height: 300px;
+
+}
+.class-img {
+  background-position: center;
+  background-image: url("/assets/images/Yoga+Classes+Near+Me+South+West+London.jpg");
+  height: 100%;
+  background-size: cover;
+}
+.class-header {
+  height:70px;
+}
+.class-description {
+  height: 120px;
+}
+
+.filter-button {
+  height: 40px;
+  width: 120px;
+}
+
+.inter{
+  font-family: 'Inter', sans-serif;
+}
+.sort-selector{
+  font-size: 18px;
+}
+.max-width-text{
+  width: 370px;
+}
+
+@media (max-width:760px){
+  .max-width-text{
+    width: auto;
+  }
+  .blank-separator {
+    height: 0px;
+  }
+  .sort-selector{
+    font-size: 14px;
+  }
+}

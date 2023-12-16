@@ -1,0 +1,26 @@
+.error-div{
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  top: 50px;
+  left: 50px;
+}
+.base {
+  background-image: url("https://myownbucket-345345.s3.eu-west-2.amazonaws.com/background404.webp");
+  width: 100%;
+  height: 100vh;
+}
+.gradient-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9304971988795518) 45%, rgba(241,241,241,0) 100%);
+}
+.font-inter {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+.color-goback {
+  color: rgb(88, 88, 181);
+  text-decoration: none;
+}

@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+.inter{
+  font-family: 'Inter', sans-serif;
+}
+
+.addFadeIn{
+  animation: smoothFadeIn 0.5s ease-in-out forwards;
+}
+
+/* .thisAnimation{
+  animation: smoothAppearBoop 0.5s ease-in-out forwards;
+} */
+.thisIsRed{
+  color: red;
+}
+
+@media (max-width:800px){
+  .column-table-adjust{
+    display: none;
+  }
+  th, td{
+    font-size: 10px;
+  }
+}
+
+@keyframes appearOpacity {
+    0%{
+      display: block;
+      opacity: 0;
+    }
+    15%{
+      opacity: 1;
+    }
+    95%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+      display: none;
+    }
+}
+
+@keyframes smoothAppearBoop {
+  0%{
+    scale: 0.8;
+    opacity: 0.1;
+  }
+  80%{
+    scale: 0.9;
+    opacity: 0.8;
+  }
+  100%{
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes smoothFadeIn {
+0%{
+  /* background-color: rgb(194, 194, 194); */
+  opacity: 0.3;
+}
+100%{
+  opacity: 1;
+  /* background-color: white; */
+}
+}
+
+
+/* sads */

@@ -1,0 +1,48 @@
+<div *ngIf="isWindowActive" (click)="offWindow()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <class-instructor-edit (closeEdit)="offWindow()" [classes]="currentClass"  />
+  </div>
+</div>
+
+<div *ngIf="isEditClass" (click)="closeEditClass()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <classes-edit (closeEdit)="closeEditClass()" [isAdd]="isAdd" [classes]="currentClass"  />
+  </div>
+</div>
+
+<div *ngIf="isEditTimeslot" (click)="closeEditTimeslot()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <class-timeslots-edit (closeEdit)="closeEditTimeslot()" [classes]="currentClass"  />
+  </div>
+</div>
+<button (click)="openAddClass()" class="btn btn-md btn-success m-1">Add Class</button>
+  <table class="table w-100 table-striped">
+    <thead>
+      <tr>
+        <th  scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th class="column-table-adjust" scope="col">Code</th>
+        <th class="column-table-adjust" scope="col">Type</th>
+        <th class="column-table-adjust" scope="col">Value</th>
+        <th scope="col">Timeslots</th>
+        <th scope="col">Instructor</th>
+        <th class="column-table-adjust" scope="col">Location</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let class of classes; let index" >
+        <th  scope="row">{{class.id}}</th>
+        <td>{{class.name}}</td>
+        <td class="column-table-adjust" >{{class.code}}</td>
+        <td class="column-table-adjust" >{{class.classTypes.name}}</td>
+        <td class="column-table-adjust" >{{class.value}}</td>
+        <td><button class="btn btn-sm btn-primary" (click)="openTimeslots(class)" >Timeslots</button></td>
+        <td><button class="btn btn-sm btn-primary" (click)="openInstructors(class)" >Instructor</button></td>
+        <td class="column-table-adjust">{{class.location.city}}</td>
+        <td><app-management-buttons (openEdit)="openEditClass(class)" (triggerDelete)="openDeleteClass(class.id)" ></app-management-buttons> </td>
+      </tr>
+
+    </tbody>
+  </table>
+

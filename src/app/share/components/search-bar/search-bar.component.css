@@ -1,0 +1,15 @@
+
+#searchTerm {
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  border-width: 0px;
+  outline: none;
+  padding: 0px 15px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 2px;
+  font-size: small;
+}
+#searchTerm::before{
+  content: 'hi';
+}

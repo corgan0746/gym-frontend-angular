@@ -1,0 +1,81 @@
+<top-auth  />
+<div class="base">
+  <div class="gradient-overlay">
+      <div class="main-form p-4">
+          <h4 class="font-inter">Sign Up</h4>
+          <h6 class="font-inter text-muted">Please fill the form to get started!</h6>
+          <hr>
+          <form [formGroup]="registerForm" (ngSubmit)="submit($event)" >
+              <div class="d-flex register gap-4">
+
+                  <div class="d-flex gap-3 position-relative" >
+
+                    <input class="input-small flex-fill col-5 text-center" formControlName="firstName" type="text" placeholder="First name" name="firstName">
+                    <input class="input-small flex-fill col-5 text-center" formControlName="lastName" type="text" placeholder="Last name" name="lastName">
+                    <p class="error-message" *ngIf="checkField(registerForm, 'firstName') || checkField(registerForm, 'lastName')" >{{fieldsErrors.firstName || fieldsErrors.lastName}}</p>
+
+                  </div>
+
+                  <div class="flex-fill input-small text-center position-relative">
+
+                    <input class="input-small col-12 flex-fill text-center" formControlName="email" type="text" placeholder="Email" name="email">
+                    <p class="error-message" *ngIf=" checkField(registerForm, 'email')" >{{fieldsErrors.email}}</p>
+
+                  </div>
+
+                  <div class="flex-fill input-small text-center position-relative">
+
+                    <input class="input-small col-12 flex-fill text-center" formControlName="password" type="password" placeholder="Password" name="password">
+                    <p class="error-message" *ngIf=" checkField(registerForm, 'password')" >{{fieldsErrors.password}}</p>
+
+                  </div>
+
+                  <div class="flex-fill input-small text-center position-relative">
+                    <input class="input-small col-12 flex-fill text-center" formControlName="confirmPassword" type="password" placeholder="Confirm Password" name="repassword">
+                    <p class="error-message" *ngIf=" checkField(registerForm, 'confirmPassword') || registerForm.errors " >{{fieldsErrors.confirmPassword || "passwords do not match"}}</p>
+                  </div>
+
+                  <div class="flex-fill input-small text-center position-relative">
+                    <input class="input-small col-12 flex-fill text-center" formControlName="phone" type="tel" placeholder="Phone Number" name="phone">
+                    <p class="error-message" *ngIf=" checkField(registerForm, 'phone')" >{{fieldsErrors.phone}}</p>
+                  </div>
+
+                  <div class="flex-fill input-small text-center position-relative">
+                    <input class="input-small col-12 flex-fill text-center" formControlName="postcode" type="text" placeholder="Post Code" name="postcode">
+                    <p class="error-message" *ngIf=" checkField(registerForm, 'postcode')" >{{fieldsErrors.postcode}}</p>
+                  </div>
+
+                  <div class="flex-fill input-small text-center position-relative">
+                    <input class="input-small col-12 flex-fill text-center" formControlName="country" type="text" placeholder="Country" name="country">
+                    <p class="error-message" *ngIf=" checkField(registerForm, 'country')" >{{fieldsErrors.country}}</p>
+                  </div>
+
+                  <div class="flex-fill input-small text-center position-relative">
+                    <input class="input-small col-12 flex-fill text-center" formControlName="city" type="text" placeholder="City" name="city">
+                    <p class="error-message" *ngIf=" checkField(registerForm, 'city')" >{{fieldsErrors.city}}</p>
+                  </div>
+
+                  <div class="flex-fill input-small text-center position-relative">
+                    <input class="input-small col-12 flex-fill text-center" formControlName="address" type="text" placeholder="Address" name="address">
+                    <p class="error-message" *ngIf=" checkField(registerForm, 'address')" >{{fieldsErrors.address}}</p>
+                  </div>
+              </div>
+              <div class="small-blank-space"></div>
+              <input type="checkbox" formControlName="terms" class="mt-3" name="conditions" >
+              <label for="conditions" class="text-label">Accept all term and conditions</label>
+              <p class="text-red " *ngIf="(registerForm.controls['terms'].value === false && acceptTerms )">You must accept the terms and conditions</p>
+              <div class="alert alert-danger error-text p-2 my-1" role="alert" *ngIf="isError" >
+                Error - {{errorMessage.message}}
+                <p>
+                  {{errorMessage.code}}
+                </p>
+              </div>
+              <div class="small-blank-space"></div>
+              <div class="col-12 text-center"><a [routerLink]="['/auth/login']" >Have an Account?, Log In Here</a></div>
+              <div class="col-12 text-center p-1"><h6>Or</h6></div>
+              <div class="d-block col-12 text-center"><button class="btn btn-primary btn-lg" type="submit" >Sign Up</button></div>
+
+          </form>
+      </div>
+  </div>
+</div>

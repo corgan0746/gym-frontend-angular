@@ -1,0 +1,56 @@
+<form [formGroup]="updateForm" (ngSubmit)="submit()" >
+
+
+
+  <div class="d-flex register gap-3">
+      <h5 class="col-12 m-0">Edit UserMembership #{{userMembership?.id}}</h5>
+
+
+
+      <div class="flex-fill d-flex gap-3 flex-wrap" >
+        <div class="flex-fill col-12 input-small text-center position-relative">
+          <input class="input-small flex-fill col-12 text-center" formControlName="reference" type="text" placeholder="Reference code" name="firstName">
+        </div>
+
+        <div class="flex-fill d-flex align-items-center col-12 input-small text-center position-relative">
+          <h6 class="flex-fill col-12 text-center m-0" type="text" placeholder="Date Created" name="lastName">Expires on {{userMembership?.endDate | date}}</h6>
+        </div>
+
+        <input  class="d-none" formControlName="membership" />
+
+        <div class="flex-fill col-12  text-center position-relative">
+          <h6 class="flex-fill col-12 text-center m-0">Current Membership:</h6>
+          <h6 class="flex-fill col-12 text-center m-1" type="text" placeholder="Date Created" name="lastName"><strong>{{userMembership?.membership?.name}} {{userMembership?.membership?.code}} {{userMembership?.membership?.value}} {{(userMembership?.membership === null)? "No Active Membership": ""}}</strong></h6>
+        </div>
+
+        <select #selectedElement  (change)="selectMembership($event.target)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <option selected>Change Membership</option>
+          <option [value]="membership.id" *ngFor="let membership of memberships" >{{membership.name}} {{membership.code}} {{membership.value}}</option>
+        </select>
+
+
+        <div class="flex-fill col-12  d-flex justify-content-around align-items-center text-center position-relative">
+          <div class="form-check form-switch col-2  text-center center-input ">
+            <input class="form-check-input" formControlName="active" type="checkbox" id="isActive" checked>
+            <label  class="form-check-label" for="isActive">Active</label>
+          </div>
+          <div class="form-check form-switch col-2  text-center center-input">
+            <input class="form-check-input " formControlName="renew" type="checkbox" id="isRenew" available="false" checked >
+            <label  class="form-check-label" for="isRenew">Renew</label>
+          </div>
+          <div class="form-check form-switch col-2  text-center center-input pe-none">
+            <input class="form-check-input " formControlName="paid" type="checkbox" id="isPaid" available="false" checked >
+            <label  class="form-check-label" for="isPaid">Paid</label>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  <div class="small-blank-space"></div>
+  <div class="d-flex justify-content-center"  >
+    <div class="d-inline-block col-3 text-center"><button (click)="deleteMembership(userMembership?.id)" class="btn btn-danger btn-lg" type="button" >Delete</button></div>
+    <div class="d-inline-block col-3 text-center"><button (click)="closeWindow()" class="btn btn-mute btn-lg" type="button" >Cancel</button></div>
+    <div class="d-inline-block col-3 text-center"><button  class="btn btn-primary btn-lg" type="submit" >Update</button></div>
+  </div>
+  <div class="small-blank-space"></div>
+</form>

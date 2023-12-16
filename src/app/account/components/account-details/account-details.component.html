@@ -1,0 +1,60 @@
+<h1 class="details-t1">Account Details</h1>
+<div class="blank-separator"></div>
+<h4 class="details-t2">My Details</h4>
+<div class="profile-picture border-light shadow-sm border position-relative rounded-circle" [ngStyle]="{'background-image': 'url('+ awsBucket+ customer?.image +')'}" >
+
+  <div *ngIf="!photoFile" class="position-absolute rounded-circle overflow-hidden change-button">
+
+    <button class="text-white position-absolute w-100 h-100 pe-none borded-0 btn"><i class="fa-solid fa-pen"></i></button>
+    <input (change)="changePicture($event)" type="file" class="actual-input position-relative">
+
+  </div>
+
+</div>
+<div class="text-center" *ngIf="photoFile" >
+  <h6>Loaded Image</h6>
+  <div class="col-4 mx-sm-1 mx-auto d-flex justify-content-center align-items-center m-2">
+    <app-image-display [image]="photoFile" />
+  </div>
+  <button (click)="uploadPhoto()" class="btn btn-sm btn-primary" >Change Photo</button>
+</div>
+<div class="blank-separator"></div>
+<div class="details">
+    <ul *ngIf="!isEdit" class="ul-list-details ">
+        <li class="col-4 li-details"><strong><span>First Name </span></strong>:<span>{{customer?.firstName | titlecase}}</span></li>
+        <li class="col-4 li-details"><strong><span>Last Name </span></strong>:<span>{{customer?.lastName | titlecase}}</span></li>
+        <li class="col-4 li-details"><strong><span>Email </span></strong>:<span>{{customer?.email}}</span></li>
+        <li class="col-4 li-details"><strong><span>Phone </span></strong>:<span>+44 {{customer?.phone}}</span></li>
+        <li class="col-4 li-details"><button (click)="changeMode()" class="btn btn-md text-white update-button">Update</button></li>
+    </ul>
+    <form *ngIf="isEdit" [formGroup]="saveForm" (ngSubmit)="submit()">
+      <div  class="col-6 mx-auto">
+        <div class="input-small col-8 mx-auto text-center position-relative my-4">
+          <input class="input-small flex-fill col-12 text-center" formControlName="firstName" type="text" placeholder="First name" name="firstName">
+          <p class="error-message" *ngIf="checkField(saveForm, 'firstName')" >{{fieldsErrors.firstName}}</p>
+        </div>
+
+        <div class="input-small col-8 mx-auto text-center position-relative my-4">
+          <input class="input-small flex-fill col-12 text-center" formControlName="lastName" type="text" placeholder="Last name" name="lastName">
+          <p class="error-message" *ngIf="checkField(saveForm, 'lastName')" >{{fieldsErrors.lastName}}</p>
+        </div>
+
+        <div class="input-small col-8 mx-auto text-center position-relative my-4">
+          <input class="input-small col-12 flex-fill text-center" formControlName="email" type="text" placeholder="Email" name="email">
+          <p class="error-message" *ngIf="checkField(saveForm, 'email')" >{{fieldsErrors.email}}</p>
+        </div>
+
+        <div class="text-center col-8 mx-auto input-small my-4 position-relative">
+          <input class="input-small col-12 flex-fill text-center" formControlName="phone" type="tel" placeholder="Phone Number" name="phone">
+          <p class="error-message" *ngIf="checkField(saveForm, 'phone')" >{{fieldsErrors.phone}}</p>
+        </div>
+
+        <div class="mx-auto adjust-buttons col-10 col-sm-8 text-center d-flex justify-content-between">
+          <button class="btn btn-md text-white update-button" (click)="changeMode()" type="button" >Cancel</button>
+          <button class="btn btn-md text-white update-button" type="submit" >Save</button>
+        </div>
+
+      </div>
+
+    </form>
+</div>

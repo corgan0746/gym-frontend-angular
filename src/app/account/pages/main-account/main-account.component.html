@@ -1,0 +1,70 @@
+<div class="whole-bar col-12">
+  <div class="darker">
+
+      <div class="search-side">
+          <div class=" menu-div d-flex">
+
+              <div>
+                <div class="logo clickable" [routerLink]="['/']" >
+                </div>
+              </div>
+              <div class="section-title">
+                  <h2 class=" text-white section-title-header">Account Settings</h2>
+              </div>
+
+          </div>
+      </div>
+      <div class="nav-bar-menu">
+          <div class="darker d-flex">
+              <div class="d-flex nav-menu-3-items col-9 " >
+
+                  <div class="col-2"></div>
+
+                  <div [routerLink]="['/']" class="col-3 item-nav-menu clickable">
+                      <h6 class="text-white text-center m-0" >Home</h6>
+                  </div>
+
+                  <hr class="text-white col-3 line-separator">
+
+                  <div [routerLink]="['/classes']" class="col-3 item-nav-menu clickable" >
+                      <h6 class="text-white text-center mt-0" >Classes</h6>
+                  </div>
+
+
+
+              </div>
+              <div [routerLink]="['/account']" class="profile-user mx-auto clickable" >
+                  <div class="rounded-circle circle">
+                      <i class="fa-solid fa-user fa-2xl profile-icon" style="color: #262626;" ></i>
+                  </div>
+                  <div class="user-info ">
+                      <h6 class="text-white mt-1 col-12 text-center">{{getName || "Guest"}}</h6>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+
+  </div>
+</div>
+
+<div class="account-body">
+  <div class="side-section-menu">
+      <ul class="ul-list p-0 m-0 list-items"  >
+          <li [routerLink]="['/account/details']"  [routerLinkActive]="['active-link']" class="d-relative border-right-bar"><span class="text-in-li flex-shrink-2 clickable">Account</span></li>
+          <li [routerLink]="['/account/memberships']" [routerLinkActive]="['active-link']" class="d-relative memberships-button border-right-bar" ><span class="text-in-li clickable">Memberships</span></li>
+          <li [routerLink]="['/account/billing']" [routerLinkActive]="['active-link']" class="d-relative flex-shrink-2 border-right-bar" ><span class="text-in-li clickable">Billing Details</span></li>
+          <li [routerLink]="['/account/bookings']" [routerLinkActive]="['active-link']" class="d-relative flex-shrink-2 border-right-bar" ><span class="text-in-li clickable">Bookings</span></li>
+          <li class="d-relative" (click)="logout()" ><span class="text-in-li clickable flex-shrink-2">Logout</span></li>
+      </ul>
+  </div>
+  <div class="line2">
+      <hr class="actual-line-2">
+  </div>
+
+  <div class="section-content">
+    <router-outlet/>
+  </div>
+
+</div>

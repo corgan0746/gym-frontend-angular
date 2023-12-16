@@ -1,0 +1,22 @@
+<app-top-bar/>
+<background-main/>
+<div class="col-sm-10 col-12 mx-auto my-3">
+  <div class="container-flex justify-content-center col-12 col-lg-10 col-md-8 mx-auto">
+    <div class="instructor-card" [ngStyle]="{'background-image': 'url('+ awsBucket+ instructor?.image +')'}" ></div>
+    <div class="mx-4 bg-dark text-white p-2 rounded">
+      <h4 class="text-desc fs-2 text-center">{{(instructor)?instructor.bios : ""}}</h4>
+      <h4 class="text-desc fs-2 my-3 text-center">{{(instructor)?instructor.firstName:""}} {{(instructor)?instructor.lastName:""}}</h4>
+      <h4 class="p-2 fs-4 text-center my-3">"Train like a champion, fight like a legend."</h4>
+      <h4 class="my-5 text-center">Email: {{(instructor)?instructor.email:""}}</h4>
+    </div>
+  </div>
+
+  <div class="col-6 mx-auto my-5 text-center bg-white rounded shadow-sm">
+    <h2>{{(instructor)?instructor.firstName:""}}'s classes</h2>
+  </div>
+
+  <div class="classes-list col-8 mx-auto d-flex flex-column gap-5">
+    <class-item *ngFor="let class1 of classes"  [class]="class1" />
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+<h1 class="details-t1">Bookings</h1>
+<div class="blank-separator d-none d-sm-block"></div>
+<h4 class="details-t2">Current Bookings</h4>
+<div class="blank-separator"></div>
+<div class="bookings-div">
+    <div *ngFor="let booking of bookings" class="booking-item shadow-sm col-12 rounded">
+        <p class="d-flex justify-content-between col-11"><strong>{{booking.dateCreated | date}}</strong> <strong class="text-danger">Today</strong></p>
+        <div class="class-item  m-2 shadow-sm">
+            <h5 class="m-0 center-text-vertical px-3"><strong><span>{{booking.classes.name}}</span></strong>&nbsp;&nbsp;&nbsp;<i class="fa-regular fa-clock"></i>&nbsp;&nbsp;<span class="fs-6"> {{booking.timeslot.startTime | slice:0:-3}} / {{booking.timeslot.endTime | slice:0:-3}}</span> - <span [routerLink]="['/class', booking.classes.id]" class="text-blue clickable fs-6">See Class <i class="fa-solid fa-arrow-right"></i> </span></h5>
+        </div>
+        <hr>
+    </div>
+</div>
+<div class="blank-separator"></div>
+<h4 class="details-t2">Past Bookings</h4>
+<div class="blank-separator"></div>
+<div class="booking-div">
+
+</div>

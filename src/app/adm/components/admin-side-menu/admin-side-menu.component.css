@@ -1,0 +1,16 @@
+.base{
+  height: 160px;
+  width: 100px;
+  background-color: rgb(217, 217, 217);
+  justify-content: space-between;
+}
+.text-button{
+  background-color: white;
+  width: 100%;
+  font-size: 16px;
+  height: 100%;
+}
+.button-1{
+  height: 50px;
+}
+

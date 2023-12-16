@@ -1,0 +1,26 @@
+<div class="col-12 resize-item rounded overflow-hidden shadow-sm bg-white">
+  <div class="d-flex class-item col-12 gap-sm-5 gap-0 addFadeIn">
+      <div class="class-img col-lg-5 col-sm-12" [ngStyle]="{'background-image': 'url('+ awsBucket+ class?.image +')'}" ></div>
+      <div class="flex-fill d-flex flex-wrap extra-padding py-2">
+          <div class="class-header flex-grow-2 w-75">
+              <h4 class="details-t2">{{class?.name}}</h4>
+              <p *ngIf="timeslotLength && timeslotLength > 0" class="time-resize mb-0"><strong class="text-success">Scheduled Classes Available</strong></p>
+              <p *ngIf="!timeslotLength" class="time-resize mb-0 "><strong class="text-danger">No Classes Available</strong></p>
+              <div class="circle-logo rounded-circle border border-secondary d-flex justify-content-center align-items-center ">
+                <p class="type-resize mb-0 text-center">{{class?.classTypes?.name }}</p>
+              </div>
+          </div>
+
+          <div class="small-extra-top-padding flex-grow-1 w-25">
+              <h4 class="text-center"><strong><span>{{class?.value}}£</span></strong></h4>
+          </div>
+
+          <p class="class-description overflow-auto">
+             {{class?.description || "No description available"}}
+            </p>
+          <div class="p-3 w-100 d-flex justify-content-end"><button [routerLink]="['/class/', class?.id]"   class="btn btn-primary btn-sm h-100 col-5 fs-4">View</button></div>
+      </div>
+
+  </div>
+  <hr class="w-50 w-sm-75 w-md-100 mx-auto">
+</div>

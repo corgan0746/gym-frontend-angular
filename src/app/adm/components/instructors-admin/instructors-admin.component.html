@@ -1,0 +1,35 @@
+<div *ngIf="isEditInstructor" (click)="closeEditInstructor()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <instructor-edit (closeEdit)="closeEditInstructor()" [isAdd]="isAdd" [instructor]="currentInstructor"  />
+  </div>
+</div>
+<div *ngIf="isEditClasses" (click)="closeInstructorClasses()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <instructor-classes-edit (closeEdit)="closeInstructorClasses()" [instructor]="currentInstructor"  />
+  </div>
+</div>
+<button (click)="openAddInstructor()" class="btn btn-md btn-success m-1">Add Instructor</button>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">First Name</th>
+      <th class="column-table-adjust" scope="col">Email</th>
+      <th class="column-table-adjust" scope="col">Bios</th>
+      <th scope="col">Classes</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let instructor of instructors" >
+      <th scope="row">{{instructor.id}}</th>
+      <td>{{instructor.firstName}}</td>
+      <td>{{instructor.lastName}}</td>
+      <td class="column-table-adjust" >{{instructor.email}}</td>
+      <td class="column-table-adjust" >{{instructor.bios | slice:0:20}}{{(instructor.bios.length > 20)?'...' : ''}}</td>
+      <td><button (click)="openInstructorClasses(instructor)" class="btn btn-sm btn-primary">Classes</button></td>
+      <td><app-management-buttons (openEdit)="openEditInstructor(instructor)" (triggerDelete)="openDeleteInstructor(instructor.id)" ></app-management-buttons></td>
+    </tr>
+  </tbody>
+</table>

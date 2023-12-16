@@ -1,0 +1,38 @@
+.home-banner {
+  text-align: center;
+  background-size: cover;
+  height: 500px;
+  background-position: center;
+}
+.darker {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+}
+.separator {
+  height: 200px;
+}
+.body-whole{
+  height: 500px;
+  width: 100%;
+}
+.body-left{
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  width: 64%;
+  vertical-align: top;
+}
+.body-right {
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  width:34%;
+  vertical-align: top;
+}
+.text-br{
+  padding: 0% 20%;
+}

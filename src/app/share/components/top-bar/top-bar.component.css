@@ -1,0 +1,160 @@
+.whole-bar{
+  height: 80px;
+  background-color: #ED2D07;
+  display: flex;
+}
+.darker {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+.nav-bar-menu{
+  background-image: url("https://myownbucket-345345.s3.eu-west-2.amazonaws.com/543346.webp");
+  background-position: center;
+  background-size:cover;
+  min-width: 400px;
+  height: 100%;
+  width: 35%;
+  display: inline-block;
+  vertical-align: top;
+}
+.search-side {
+  width: 65%;
+  vertical-align: top;
+  height: 100%;
+  display: flex;
+
+}
+.menu-div{
+  width: 150px;
+  height: 100% ;
+}
+.menu-position {
+  position: relative;
+  top: calc(50% - 14px);
+  left: calc(50% - 16px);
+
+}
+svg path {
+  fill: white;
+}
+.nav-menu-3-items {
+  height: 100%;
+  align-content: flex-end;
+  display: flex;
+}
+.item-nav-menu {
+  padding: 5px;
+  height: 35px;
+  margin-top: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.item-nav-menu:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: color,background-color 0.3s;
+}
+.profile-user {
+  width: 60px;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+.circle {
+  position: relative;
+  top:calc(50% - 30px );
+  left: calc(50% - 25px);
+  height: 50px;
+  width: 50px;
+  background-color: #ffffff;
+}
+.profile-icon{
+  position: relative;
+  top: calc(50% - 14px);
+  left: calc(50% - 14px);
+}
+.user-info{
+  position: relative;
+  bottom: -10px;
+}
+.line-separator {
+  transform: rotate(90deg);
+  height: 2px;
+  border-width: 1px;
+  color:#ffffff;
+  margin: 0px;
+  position: relative;
+  top: 50%;
+  flex-shrink: 6;
+}
+
+@keyframes heightExpand {
+  0%{
+    height: 0%;
+  }
+  100% {
+    height: 560px;
+  }
+}
+
+
+side-menu {
+  position: absolute;
+  background-color: rgb(40, 40, 40);
+  height: 560px;
+  z-index: 100;
+  top: 80px;
+  width: 150px;
+  animation: heightExpand 0.3s ease-in-out;
+  overflow: hidden;
+}
+.hoverDark{
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.hoverDark:hover{
+  background-color: rgb(54, 54, 54);
+  transition: background-color 0.3s;
+}
+
+.scaleAnimation{
+  scale: 1;
+  transition: scale 0.2s ease-in-out;
+}
+.scaleAnimation:hover{
+  scale: 1.1;
+  transition: scale 0.3s ease-in-out;
+}
+
+search-bar {
+  height: 60px;
+  width: 180px;
+  position: relative;
+  top: calc(50% - 20px) ;
+  margin: 0px 10px;
+}
+.outside-side{
+  position: absolute;
+}
+.darkerBlack {
+  background-color: rgb(49, 49, 49);
+}
+
+@media (max-width:760px){
+  .search-side {
+    width: 75%;
+  }
+  .nav-menu-3-items{
+    display: none;
+  }
+  .nav-bar-menu{
+    width: auto;
+    min-width: auto;
+    flex: 1;
+  }
+  side-menu {
+    height: auto;
+    width: 120px;
+  }
+}

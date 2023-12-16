@@ -1,0 +1,133 @@
+<form [formGroup]="updateForm" (ngSubmit)="submit('update')" >
+
+
+
+  <div class="d-flex register gap-3">
+      <h5 class="col-12 m-0">Edit/Add Timeslot Class#{{classes?.code}}</h5>
+
+      <select #selectedElement (change)="selectTimeslot($event.target)" class="form-select text-center form-select-lg mb-3" aria-label=".form-select-lg example">
+        <option disabled selected>Select Timeslot</option>
+        <option [value]="i" *ngFor="let timeslot of timeslots; let i = index" >{{i+1}}# - {{timeslot.startTime}} / {{timeslot.endTime}}</option>
+      </select>
+
+      <div class="flex-fill d-flex gap-3 flex-wrap" *ngIf="selectedTimeslot">
+
+        <div class="flex-fill col-12  text-center position-relative">
+          <h6 class="flex-fill col-12 text-center m-0">Start Time</h6>
+          <h6 class="flex-fill col-12 text-center m-1" type="text" placeholder="Date Created" name="lastName"><strong>{{selectedTimeslot.startTime}}</strong></h6>
+        </div>
+
+
+        <div class="flex-fill col-12 text-center position-relative">
+          <h6 class="flex-fill col-12 text-center m-1">Set Start Time</h6>
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="col-4">
+              <select (change)="selectStartHour($event.target)" class="fs-6 form-select form-select-lg mb-3">
+                <option [value]="null" selected>Hour</option>
+                <option [value]="i" *ngFor="let hour of hours; let i = index" >{{i}}</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <select  (change)="selectStartMinute($event.target)" class="fs-6 form-select form-select-lg mb-3">
+                <option [value]="null" selected>Minutes</option>
+                <option [value]="minute" *ngFor="let minute of minutes; let i = index" >{{minute}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="flex-fill col-12  text-center position-relative">
+          <h6 class="flex-fill col-12 text-center m-0">Finish Time</h6>
+          <h6 class="flex-fill col-12 text-center m-1" type="text" placeholder="Date Created" name="lastName"><strong>{{selectedTimeslot.endTime}}</strong></h6>
+        </div>
+
+
+        <div class="flex-fill col-12 text-center position-relative">
+          <h6 class="flex-fill col-12 text-center m-1">Set Finish Time</h6>
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="col-4">
+              <select (change)="selectEndHour($event.target)" class="fs-6 form-select form-select-lg mb-3">
+                <option [value]="null" selected>Hour</option>
+                <option [value]="i" *ngFor="let hour of hours; let i = index" >{{i}}</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <select  (change)="selectEndMinute($event.target)" class="fs-6 form-select form-select-lg mb-3">
+                <option [value]="null" selected>Minutes</option>
+                <option [value]="minute" *ngFor="let minute of minutes; let i = index" >{{minute}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="flex-fill col-12  d-flex justify-content-around align-items-center text-center position-relative">
+          <div class="form-check form-switch col-2  text-center center-input ">
+            <input class="form-check-input" formControlName="open" type="checkbox" id="isOpen" checked>
+            <label  class="form-check-label" for="isOpen">Open</label>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+  <div *ngIf="selectedTimeslot" class="small-blank-space"></div>
+  <div class="d-flex justify-content-center" *ngIf="selectedTimeslot" >
+    <div class="d-inline-block col-3 text-center"><button (click)="deleteTimeslot(selectedTimeslot.id)" class="btn btn-danger btn-lg" type="button" >Delete</button></div>
+    <div class="d-inline-block col-3 text-center"><button (click)="closeWindow()" class="btn btn-light btn-lg" type="button" >Cancel</button></div>
+    <div class="d-inline-block col-3 text-center"><button  class="btn btn-primary btn-lg" type="submit" >Update</button></div>
+  </div>
+  <div *ngIf="selectedTimeslot" class="small-blank-space"></div>
+</form>
+
+
+
+<form [formGroup]="updateForm" *ngIf="!selectedTimeslot" (ngSubmit)="submit('create')" >
+  <div class="d-flex register gap-3">
+    <h5 class="col-12 text-center m-0">Create Timeslot</h5>
+    <div class="flex-fill col-12 text-center position-relative">
+      <h6 class="flex-fill col-12 text-center m-1">Set Start Time</h6>
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <div class="col-4">
+          <select (change)="selectStartHour($event.target)" class="fs-6 form-select form-select-lg mb-3">
+            <option [value]="null" selected>Hour</option>
+            <option [value]="i" *ngFor="let hour of hours; let i = index" >{{i}}</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <select  (change)="selectStartMinute($event.target)" class="fs-6 form-select form-select-lg mb-3">
+            <option [value]="null" selected>Minutes</option>
+            <option [value]="minute" *ngFor="let minute of minutes; let i = index" >{{minute}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="flex-fill col-12 text-center position-relative">
+      <h6 class="flex-fill col-12 text-center m-1">Set Finish Time</h6>
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <div class="col-4">
+          <select (change)="selectEndHour($event.target)" class="fs-6 form-select form-select-lg mb-3">
+            <option [value]="null" selected>Hour</option>
+            <option [value]="i" *ngFor="let hour of hours; let i = index" >{{i}}</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <select  (change)="selectEndMinute($event.target)" class="fs-6 form-select form-select-lg mb-3">
+            <option [value]="null" selected>Minutes</option>
+            <option [value]="minute" *ngFor="let minute of minutes; let i = index" >{{minute}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center"  >
+    <div class="d-inline-block col-3 text-center"><button (click)="closeWindow()" class="btn btn-light btn-lg" type="button" >Cancel</button></div>
+    <div class="d-inline-block col-3 text-center"><button  class="btn btn-primary btn-lg" type="submit" >Create</button></div>
+  </div>
+  <div class="small-blank-space"></div>
+</form>

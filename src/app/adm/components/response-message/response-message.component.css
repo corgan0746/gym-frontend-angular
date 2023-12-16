@@ -1,0 +1,30 @@
+.message{
+  height: 60px;
+  width: 150px;
+  opacity: 0;
+  pointer-events: none;
+  animation: appearDisappear 8.5s ease-in-out forwards;
+}
+.success-message{
+  background-color: green;
+}
+.error-message{
+  background-color: rgb(169, 33, 33);
+}
+
+@keyframes appearDisappear {
+  0%{
+    display: block;
+    opacity: 0;
+  }
+  15%{
+    opacity: 1;
+  }
+  95%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}

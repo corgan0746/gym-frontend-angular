@@ -1,0 +1,12 @@
+membership-item{
+  width: 100%;
+}
+.auto-width{
+  width: 370px;
+}
+
+@media (max-width:500px){
+  .auto-width{
+    width: auto;
+  }
+}

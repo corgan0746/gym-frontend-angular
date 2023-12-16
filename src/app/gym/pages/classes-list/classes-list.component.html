@@ -1,0 +1,25 @@
+<app-top-bar/>
+<background-main/>
+<div class="p-5 mx-auto main-background-picture col-sm-12 col-md-8">
+
+  <div class="blank-separator"></div>
+  <h1 class="details-t2 inter bg-white rounded p-1 shadow-sm text-center max-width-text py-3 mx-auto">Classes Found <span>{{searchedTerm}} : {{classes.length}}</span></h1>
+  <div class="blank-separator"></div>
+  <div class="filters d-flex justify-content-center my-4">
+
+      <select (change)="selectType($event)" name="filter" class="form-select btn btn-light btn-sm px-2 filter-button sort-selector shadow-sm m-2">
+        <option selected >Filter <i class="fa-solid fa-filter"></i></option>
+        <option [value]="type.id" *ngFor="let type of classTypes" >{{type.name}}</option>
+      </select>
+
+      <select (change)="selectionChanged($event)" class="btn btn-light btn-sm px-2 filter-button shadow-sm sort-selector m-2">
+        <option value="" selected >Sort Price<i class="fa-solid fa-sort"></i></option>
+        <option value="OrderByValueDesc" >High-to-Low</option>
+        <option value="OrderByValueAsc" >Low-to-High</option>
+      </select>
+  </div>
+  <div *ngIf="fetchedData" class="classes-list col-12 d-flex flex-column gap-5">
+    <class-item *ngFor="let class1 of classes"  [class]="class1" />
+  </div>
+</div>
+

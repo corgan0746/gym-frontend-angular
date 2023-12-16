@@ -1,0 +1,35 @@
+<div *ngIf="isEditMembership" (click)="closeEditMembership()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <membership-edit (closeEdit)="closeEditMembership()" [isAdd]="isAdd" [membership]="currentMembership"  />
+  </div>
+</div>
+<div *ngIf="isEditClassesMembership" (click)="closeEditMembershipClasses()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <membership-classes-edit (closeEdit)="closeEditMembershipClasses()" [membership]="currentMembership"  />
+  </div>
+</div>
+<button (click)="openAddMembership()" class="btn btn-md btn-success m-1">Add Membership</button>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Membership Name</th>
+      <th class="column-table-adjust" scope="col">Code</th>
+      <th scope="col">Value</th>
+      <th scope="col">Classes</th>
+      <th scope="col">Active</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="memberships !== undefined" >
+    <tr *ngFor="let membership of memberships" >
+      <th scope="row">{{membership.id}}</th>
+      <td>{{membership.name}}</td>
+      <td class="column-table-adjust" >{{membership.code}}</td>
+      <td>{{membership.value}}</td>
+      <td><button (click)="openEditMembershipClasses(membership)" class="btn btn-sm btn-primary">Classes</button></td>
+      <td>{{membership.active}}</td>
+      <td><app-management-buttons (openEdit)="openEditMembership(membership)" (triggerDelete)="openDeleteMembership(membership.id)" ></app-management-buttons></td>
+    </tr>
+  </tbody>
+</table>

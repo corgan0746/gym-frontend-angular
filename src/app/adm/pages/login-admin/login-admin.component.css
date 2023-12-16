@@ -1,0 +1,27 @@
+.login-form{
+  width: 300px;
+  position: relative;
+  left: calc(50% - 150px);
+}
+.field{
+  height: 30px;
+}
+.inter{
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.input-small{
+  font-size: 14px;
+}
+.back-div{
+  position: relative;
+  width: 300px;
+  left: calc(50% - 150px);
+}
+.white-space{
+  height: 50px;
+
+}
+.text-red{
+  color: rgb(169, 13, 13);
+}

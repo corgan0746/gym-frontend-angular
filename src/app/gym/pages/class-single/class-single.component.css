@@ -1,0 +1,131 @@
+
+.details-t1{
+  font-size: 34px;
+}
+.details-t2{
+  font-size: 24px;
+}
+.blank-separator {
+  height: 50px;
+}
+
+.class-item {
+  height: 600px;
+
+}
+.class-img {
+  background-position: center;
+  height: 100%;
+  background-size: cover;
+}
+
+.filter-button {
+  height: 40px;
+  width: 120px;
+}
+.time-resize {
+  font-size: larger;
+}
+
+.book-button {
+  width: 100px;
+  height: 50px;
+}
+.border-black{
+  border: 1px solid rgb(209, 209, 209);
+  padding: 25px;
+  border-radius: 20px;
+}
+.inst-width{
+  width: 250px;
+}
+.right-side-text{
+  width: 600px;
+}
+.right-side-text-inside{
+  font-size: 18px;
+  width: 90%;
+}
+.container-right{
+  width: 50%;
+}
+.timeslot-item-list{
+  max-height: 85px;
+}
+.dot{
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.green{
+  background-color: green;
+}
+.red{
+  background-color: rgb(140, 9, 9);
+}
+
+.output-message{
+  height: 50;
+  color: white;
+  font-size: 22px;
+  animation: appearOpacity 8s ease-in-out forwards;
+}
+
+@media (max-width: 1900px){
+  .right-side-text-inside{
+    font-size: 16px;
+    margin: 0;
+  }
+  .container-right{
+    width: 100%;
+  }
+  .right-side-text{
+    width: 500px;
+  }
+
+}
+
+@media (max-width: 1400px){
+  .right-side-text{
+    width: 400px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .class-item {
+      flex-wrap: wrap;
+      height: auto;
+  }
+  .class-img {
+    height: 200px;
+}
+
+}
+@media (max-width: 600px) {
+  .class-item {
+      flex-wrap: wrap;
+      height: auto;
+  }
+  .class-img {
+      height: 200px;
+  }
+  .time-resize {
+      font-size: smaller;
+  }
+  .right-side-text-inside{
+    font-size: 14px;
+    margin: 0;
+  }
+  .right-side-text{
+    width: 85%;
+
+  }
+}
+
+@media (max-width: 374px){
+  .class-img{
+    height: 200px;
+  }
+}

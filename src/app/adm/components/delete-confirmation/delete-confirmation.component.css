@@ -1,0 +1,9 @@
+.delete-base{
+  position: fixed;
+  z-index: 120;
+  background-color: white;
+  height: 200px;
+  width: 400px;
+  left: calc(50% - 200px);
+  top: calc(50vh - 100px);
+}

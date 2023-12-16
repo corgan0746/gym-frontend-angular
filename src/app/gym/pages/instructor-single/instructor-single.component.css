@@ -1,0 +1,33 @@
+.instructor-description {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 120px;
+  position: relative;
+  top: calc(100% - 120px);
+
+}
+.instructor-card {
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  width: 300px;
+  min-width: 280px;
+  border-radius: 7px;
+
+}
+.darker {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+}
+.container-flex{
+  display: flex;
+}
+
+@media (max-width:1000px){
+  .container-flex{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:50px;
+  }
+
+}

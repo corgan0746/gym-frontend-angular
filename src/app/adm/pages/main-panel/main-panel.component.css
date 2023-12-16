@@ -1,0 +1,81 @@
+.main-tab{
+  min-height: 900px;
+  width: 90%;
+  border: 1px solid rgb(208, 207, 207);
+  display: inline-block;
+}
+.admin-side-menu-div{
+  width: 10%;
+  display: inline-block;
+  vertical-align: top;
+}
+.admin-side-menu{
+  vertical-align: top;
+  display: inline-block;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.base{
+  height: 160px;
+  width: 100px;
+  background-color: rgb(217, 217, 217);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.text-button{
+  background-color: white;
+  width: 100%;
+  font-size: 16px;
+  height: 100%;
+}
+.button-1{
+  height: 50px;
+}
+.active-button{
+  background-color: rgb(167, 167, 167);
+  color: rgb(237, 237, 237);
+  transition: background,color 0.3s ease-in-out;
+}
+app-response-message{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.emergent-window{
+  position:fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 99;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.10);
+}
+
+.base-form{
+  width: 400px;
+  position: relative;
+  top: 150px;
+}
+
+@media (max-width:1200px){
+  .admin-side-menu{
+    display: block;
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:10px;
+  }
+  .base{
+    height: 55px;
+    width: 280px;
+    background-color: rgb(217, 217, 217);
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .main-tab{
+    width: 100%;
+  }
+}

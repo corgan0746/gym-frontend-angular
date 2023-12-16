@@ -1,0 +1,106 @@
+.details-t1{
+  font-size: 34px;
+}
+.details-t2{
+  font-size: 24px;
+}
+.blank-separator {
+  height: 50px;
+}
+.details{
+  width: 800px;
+}
+.ul-list-details{
+  list-style: none;
+  display: flex;
+  height: 200px;
+  flex-wrap: wrap;
+}
+.li-details {
+  height: 60px;
+  text-align: left;
+}
+.update-button{
+  background-color: rgb(67, 3, 3);
+}
+
+.update-button:hover{
+  scale: 1.05;
+  transition: scale 0.3s ease-in-out;
+}
+.input-small {
+  height: 40px;
+  border-radius: 2px;
+  background-color: rgb(229, 229, 229);
+  border: none;
+}
+.error-message{
+  position: absolute;
+  display: block;
+  height: 15px;
+  width: 100%;
+  bottom: -15px;
+  font-size: 15px;
+  color: red;
+  margin: 0;
+}
+.profile-picture{
+  height: 150px;
+  width: 150px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: smoothAppearBoop 0.5s ease-in-out forwards;
+}
+
+.change-button{
+  left: 100px;
+  width: 50px;
+  height: 50px;
+  bottom: calc(50% - 70px);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.35);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.change-button:hover{
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.actual-input{
+  z-index: 5;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+@media (max-width:1000px){
+  .details{
+    width: 100%;
+  }
+  .li-details{
+    width: 100%;
+  }
+}
+
+@media (max-width:760px){
+  .details-t1{
+    text-align: center;
+  }
+  .details-t2{
+    text-align: center;
+  }
+  .profile-picture{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .adjust-buttons{
+    height: 40px;
+    gap:2;
+    margin-bottom: 80px;
+  }
+}

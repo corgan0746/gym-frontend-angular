@@ -1,0 +1,44 @@
+.main {
+  height: 60px;
+  width: 100%;
+  background-color: rgb(28, 28, 28);
+  position: absolute;
+}
+.logo {
+  height: 100px;
+  width: 100px;
+  background-image: url("src\assets\img\main-logo2.jpg");
+  border-radius: 100px;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+}
+.logo:hover{
+  scale: 1.05;
+  transition: scale 0.4s;
+}
+.clickable{
+  cursor: pointer;
+}
+.home-button{
+  color: white;
+  width: 120px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  left: calc(160px);
+  top:calc(50% - 20px);
+  font-size: 30px;
+  border-radius: 20px;
+}
+.home-button:hover{
+  background-color: white;
+  color: black;
+  transition: background, color 0.4s;
+}
+
+@media (max-width: 600px) {
+  .home-button{
+    position: relative;
+    left: calc(50% - 60px);
+  }
+}

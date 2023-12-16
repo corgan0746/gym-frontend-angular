@@ -1,0 +1,27 @@
+<div class="white-space"></div>
+<div class="back-div my-1"><button [routerLink]="['/']" class="btn btn-sm btn-mute bg-dark-50 border border-mute rounded-pill">Go Back</button></div>
+<form class="form1" (submit)="mainPanelLogin($event)" >
+
+  <div class="login-form gap-4 border border-secondary rounded shadow-sm inter py-3">
+
+    <div>
+      <h3 class="text-center">Data Manager</h3>
+    </div>
+
+      <div class="field col-12 input-small text-center my-3">
+        <input class="input-small col-10 text-center" type="text" placeholder="User" name="user">
+      </div>
+      <div class="field col-12 input-small text-center my-3">
+        <input class="input-small col-10 text-center" type="password" placeholder="Password" name="password">
+      </div>
+
+      <div class="field col-12 input-small text-center my-3">
+        <button class="btn btn-mute btn-lg" type="submit" >Login</button>
+      </div>
+
+      <div *ngIf="wrongDetails" class="field col-12 input-small text-center my-3" >
+        <p class="text-red p-2">Wrong Credentials</p>
+      </div>
+
+  </div>
+</form>

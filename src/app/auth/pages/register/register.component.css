@@ -1,0 +1,77 @@
+.main-form {
+  background-color: white;
+  border: 2px solid rgb(226, 226, 226);
+  border-radius: 12px;
+  position: relative;
+  width: 400px;
+  min-height: 770px;
+  left: calc(50% - 200px);
+  top: 68px;
+  -webkit-box-shadow: -1px 10px 5px 0px rgba(0,0,0,1);
+  -moz-box-shadow: -1px 10px 5px 0px rgba(0,0,0,1);
+  box-shadow: -1px 10px 5px 0px rgba(0,0,0,1);
+}
+.base {
+  background-image: url("https://myownbucket-345345.s3.eu-west-2.amazonaws.com/background404.webp");
+  width: 100%;
+  min-height: 1000px;
+  height: 100vh;
+}
+.gradient-overlay {
+  width: 100%;
+  min-height: 1000px;
+  height: 100vh;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9304971988795518) 45%, rgba(241,241,241,0) 100%);
+}
+.font-inter {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+.input-small {
+  height: 40px;
+  border-radius: 2px;
+  background-color: rgb(229, 229, 229);
+  border: none;
+}
+.register {
+  justify-content:space-around;
+  flex-wrap: wrap;
+}
+.text-label {
+  height: 20px;
+}
+.small-blank-space {
+  height: 20px;
+}
+
+
+.error-message{
+  position: absolute;
+  display: block;
+  height: 15px;
+  width: 100%;
+  bottom: -15px;
+  font-size: 15px;
+  color: red;
+  margin: 0;
+}
+.text-red {
+  color: red;
+  font-size: 15px;
+}
+.error-text{
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .main-form{
+    top: 120px;
+    width: 100%;
+    left: 0px;
+  }
+
+}
+
+
+

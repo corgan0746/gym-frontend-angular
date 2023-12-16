@@ -1,0 +1,20 @@
+<div *ngIf="admService.isConfirmDelete" (click)="offWindow()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <delete-confirmation (cancelDelete)="offWindow()" (emitConfirmation)="executePostCallback()" />
+  </div>
+</div>
+
+<div class="main-frame">
+    <div class="admin-side-menu">
+      <div class="base d-flex p-1 shadow-sm">
+        <div class="button-1 col-4 col-xl-12 shadow-sm"><button (click)="changeState(1)" [routerLink]="['/adm/panel/gym']" class="btn btn-sm btn-mute text-button" [ngClass]="{'active-button': (panelSelected === 1)}" >Gym</button></div>
+        <div class="button-1 col-4 col-xl-12  shadow-sm"><button (click)="changeState(2)" [routerLink]="['/adm/panel/customers']" class="btn btn-sm btn-mute text-button" [ngClass]="{'active-button': (panelSelected === 2)}" >Customers</button></div>
+        <div class="button-1 col-4 col-xl-12  shadow-sm"><button (click)="logout()" [routerLink]="['/adm/panel/account']" class="btn btn-sm btn-mute text-button" [ngClass]="{'active-button': (panelSelected === 3)}" >Logout</button></div>
+      </div>
+    </div>
+  <div class="main-tab rounded">
+    <router-outlet/>
+  </div>
+</div>
+<app-response-message *ngIf="admService.isMessage" (triggerDestroy)="destroyMessage()" [isSuccess]="admService.isSuccess"  />
+

@@ -1,0 +1,11 @@
+<!-- gym -->
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link" [ngClass]="{'active': (gymRoute === 1)}"  [routerLink]="['/adm/panel/gym/classes']" (click)="changeState(1)" >Classes</button>
+    <button class="nav-link" [ngClass]="{'active': (gymRoute === 2)}" [routerLink]="['/adm/panel/gym/instructors']" (click)="changeState(2)" >Instructors</button>
+    <button class="nav-link" [ngClass]="{'active': (gymRoute === 3)}" [routerLink]="['/adm/panel/gym/memberships']" (click)="changeState(3)" >Memberships</button>
+  </div>
+</nav>
+<div class="tab-content">
+  <router-outlet/>
+</div>

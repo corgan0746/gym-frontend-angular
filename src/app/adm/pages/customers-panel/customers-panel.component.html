@@ -1,0 +1,53 @@
+<div *ngIf="isWindowActive" (click)="offWindow()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <customer-edit (closeEdit)="offWindow()" [customer]="currentCustomer"  />
+  </div>
+</div>
+
+<div *ngIf="isBookingEdit" (click)="closeBookings()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <bookings-edit (closeEdit)="closeBookings()" [customer]="currentCustomer"  />
+  </div>
+</div>
+
+<div *ngIf="isUserMembership" (click)="closeUserMembership()" class="emergent-window ">
+  <div class="bg-white rounded base-form mx-auto" (click)="notPropagate($event)" >
+    <user-membership-edit (closeEdit)="closeUserMembership()" [customer]="currentCustomer"  />
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th class="column-table-adjust" scope="col">First Name</th>
+      <th class="column-table-adjust" scope="col vanish">Last Name</th>
+      <th class="column-table-adjust" scope="col">Email</th>
+      <th class="column-table-adjust" scope="col vanish">Active</th>
+      <th class="column-table-adjust" scope="col vanish">Phone</th>
+      <th class="column-table-adjust" scope="col vanish">Privileges</th>
+      <th class="column-table-adjust" scope="col vanish">Address</th>
+      <th scope="col">Membership</th>
+      <th scope="col">Bookings</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers; let index" >
+      <th scope="row">{{customer.id}}</th>
+      <td class="column-table-adjust" >{{customer.firstName}}</td>
+      <td class="column-table-adjust" >{{customer.lastName}}</td>
+      <td class="column-table-adjust" >{{customer.email}}</td>
+      <td class="column-table-adjust" >{{customer.active}}</td>
+      <td class="column-table-adjust" >{{customer.phone}}</td>
+      <td class="column-table-adjust" >{{customer.privileges}}</td>
+      <td class="column-table-adjust" >address</td>
+      <td><button class="btn btn-sm btn-primary" (click)="openUserMembership(customer)" >Membership</button></td>
+      <td><button class="btn btn-sm btn-primary" (click)="openBookings(customer)" >Bookings</button></td>
+      <td><app-management-buttons (openEdit)="openEditCustomer(customer)" (triggerDelete)="openDeleteCustomer(customer.id)" ></app-management-buttons> </td>
+    </tr>
+
+  </tbody>
+</table>
+
+

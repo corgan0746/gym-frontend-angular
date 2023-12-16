@@ -1,0 +1,39 @@
+    <h1 class="membership-title text-center" [ngClass]="{'bg-dark fs-1 py-2 m-0':!isAccount}" ><span>{{(membership)?membership.name:""}}</span></h1>
+    <div class="pt-4 rounded-in-small shadow-sm" [ngStyle]="{'backgroundImage': image }" [ngClass]="{'membership-main-content':isAccount, 'membership-main-content-list':!isAccount}"  >
+
+        <div class="" [ngClass]="{'membership-flex-div':isAccount, 'membership-flex-div-list':!isAccount}" >
+            <div class="membership-section1 flex1-section" [ngClass]="{'w-100':isAccount}" >
+                <ul class="d-flex flex-column list-unstyled p-3" [ngClass]="{'gap-4':isAccount, 'gap-2':!isAccount}" >
+                    <li><h5><strong><span class="">Code</span></strong> : <span class="fs-6 ">{{(membership)?membership.code:""}}</span></h5></li>
+                    <li><h5><strong><span class="">Length</span></strong> : <span class="fs-6 ">30 Days</span></h5></li>
+                    <li *ngIf="isAccount" ><h5><strong><span class="">Registered Date</span></strong> : <span class="fs-6">{{membership!.startDate | date:'MMM d, y' }}</span></h5></li>
+                    <li *ngIf="isAccount" ><h5><strong><span class="">Renew Date</span></strong> : <span class="fs-6">{{membership!.expireDate | date:'MMM d, y'}}</span></h5></li>
+                </ul>
+            </div>
+            <div class="membership-section1 flex2-section border-0" [ngClass]="{'w-100':isAccount}" >
+                <h1 class="section2-title">{{(isAccount)?"Classes Included":"Find About Classes Included"}}</h1>
+                <div class="membership-section2 d-flex flex-column align-items-center ">
+
+                    <div class="col-11 m-2 " *ngIf="!isAccount" >
+                      <h5 class="text-blue mt-2">Check out all The classes included!</h5>
+                    </div>
+                    <div *ngIf="isAccount" class="col-11 m-2 overflow-auto">
+                      <div *ngFor="let class of classes" class="class-item col-11 m-2 shadow-sm" >
+                          <h5  class="m-0 center-text-vertical px-3"><span>{{class.name}}</span> - <span [routerLink]="['/class', class.id]" class="click-enabled text-blue fs-6">See Class <i class="fa-solid fa-arrow-right"></i> </span></h5>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" mx-auto gap-1 gap-sm-5" [ngClass]="{'membership-bottom':isAccount, 'membership-bottom-list':!isAccount}" >
+            <h4 class="m-0 bottom-font-size rescale-bottom-flex-div "><strong>Price: £<span>{{(membership)?membership.value:""}} /Month</span></strong></h4>
+            <div class="rescale-bottom-flex-div" *ngIf="!isAccount">
+              <button (click)="goMembership(membership!.id)"  class="btn btn-sm btn-primary move-button"><strong class="fs-5">View Membership</strong></button>
+            </div>
+            <h4 *ngIf="isAccount" class="m-0 bottom-font-size"><strong>Renew: <span>10/10/2023</span></strong></h4>
+            <button *ngIf="(isAccount && isRenew)" class="btn btn-sm btn-danger move-button"><strong class="fs-5">Turn Off Renew</strong></button>
+            <button *ngIf="(isAccount && !isRenew)" class="btn btn-sm btn-success move-button"><strong class="fs-5">Renew</strong></button>
+        </div>
+
+    </div>
