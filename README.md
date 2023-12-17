@@ -43,12 +43,7 @@ To run the Gym Management System Angular Frontend locally, follow these steps:
     - `ng serve` 
     
 5.  Open your browser and navigate to `http://localhost:4200/` to view the application.
-6. Environment variables: located /src/main/resources/application.properties
-- spring.datasource.url  - ( url to the Mysql Database, also include credentials in the properties )
-- allowed.origins - ( incoming origin accepted on the server )
-- aws.s3.access.key - ( Aws S3 Bucket Access key )
-- aws.s3.secret.key - ( Aws S3 Bucket Secret key )
-- aws.s3.bucket.name - ( Aws S3 Bucket Name )
+
     
 ##
 
