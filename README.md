@@ -1,6 +1,7 @@
 # Angular Frontend - Gym App & Management System
 
 Welcome to the Gym Management System Angular Frontend! This application provides a user-friendly interface for gym members to manage their memberships, book classes, and interact with various features. Additionally, an admin panel is available for administrators to perform CRUD operations on Classes, Instructors, Memberships, Membership Classes, and Timeslots.
+Connected to the Back-end: https://github.com/corgan0746/gym-backend-springboot-server
 
 ## Overview
 
