@@ -47,6 +47,7 @@ export interface Classes {
   location:   Location;
   classTypes: ClassTypes;
   timeslots?: Timeslot[];
+  description?:string;
 }
 
 export interface ClassTypes {

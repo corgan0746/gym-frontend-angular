@@ -111,6 +111,7 @@ export interface Classes {
   endTime:    Date;
   location:   Location;
   classTypes: ClassTypes;
+  description?:string;
 }
 
 export interface ClassTypes {

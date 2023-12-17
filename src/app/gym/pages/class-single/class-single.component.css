@@ -37,7 +37,8 @@
   border-radius: 20px;
 }
 .inst-width{
-  width: 250px;
+  width: 270px;
+  /* width: auto; */
 }
 .right-side-text{
   width: 600px;

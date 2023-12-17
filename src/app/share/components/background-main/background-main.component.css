@@ -9,6 +9,7 @@
   border-radius: 100px;
   transition: top 1.2s ease-in-out;
   transition-delay: 0.4s;
+  z-index: 1;
 }
 .div-2{
   width: 100px;
@@ -21,6 +22,7 @@
   border-radius: 100px;
   transition: top 1.3s ease-in-out;
   transition-delay: 0.1s;
+  z-index: 1;
 }
 .div-3{
   width: 300px;
@@ -33,6 +35,7 @@
   border-radius: 100px;
   transition: top 0.8s ease-in-out;
   transition-delay: 0.2s;
+  z-index: 1;
 }
 .div-4{
   width: 300px;
@@ -45,6 +48,7 @@
   border-radius: 250px;
   transition: top 1s ease-in-out;
   transition-delay: 0.2s;
+  z-index: 1;
 }
 .div-5{
   width: 400px;
@@ -57,6 +61,7 @@
   border-radius: 250px;
   transition: top 0.9s ease-in-out;
   transition-delay: 0.5s;
+  z-index: 1;
 }
 .custom-shadow{
   -webkit-box-shadow: 15.5px 10px 0 1.5px #dddddd;
@@ -69,6 +74,10 @@
   background-color: hsla(360, 100%, 0%, 0.05);
   width: 100%;
   height: 100%;
+  z-index: 2;
+}
+.less-opactity{
+  opacity: 1;
 }
 .main-fraim-bg{
   position: fixed;

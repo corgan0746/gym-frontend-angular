@@ -31,7 +31,6 @@ export class ClassesAdminComponent {
     this.getClasses("");
   }
 
-
   public getClasses(mode:string){
     const subscription = this.gymService.getAllClasses(mode)
     .subscribe({

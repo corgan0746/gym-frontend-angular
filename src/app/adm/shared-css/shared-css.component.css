@@ -34,6 +34,14 @@
   background-color: rgb(229, 229, 229);
   border: none;
 }
+.input-small-2 {
+  resize: none;
+  height: 70px;
+  font-size: 14px;
+  border-radius: 2px;
+  background-color: rgb(229, 229, 229);
+  border: none;
+}
 .register {
   justify-content:space-around;
   flex-wrap: wrap;
@@ -76,6 +84,9 @@
     top: 120px;
     width: 100%;
     left: 0px;
+  }
+  .input-small-2 {
+    height: 50px;
   }
 
 }

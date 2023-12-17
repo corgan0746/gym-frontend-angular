@@ -33,8 +33,8 @@ export class ClassesEditComponent {
 
   ngOnInit(): void {
     if(this.classes !== undefined){
-      const {classTypes, value, name, code, id} = this.classes;
-      this.updateForm.setValue({classTypes:classTypes.id, value, name, code, id});
+      const {classTypes, value, name, code, id, description} = this.classes;
+      this.updateForm.setValue({classTypes:classTypes.id, value, name, code, id, description});
     }
     this.getClassTypes();
   }
@@ -44,6 +44,7 @@ export class ClassesEditComponent {
     name:['', [Validators.required]],
     code:['', [Validators.required]],
     value:['', [Validators.required]],
+    description:[''],
     classTypes:['', [Validators.requiredTrue]]
   }
   )

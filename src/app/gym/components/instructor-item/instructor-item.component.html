@@ -1,4 +1,4 @@
-<div *ngIf="instructor" [routerLink]="['/instructor/', instructor.id]" [ngStyle]="{'background-image': 'url('+ awsBucket+ instructor.image +')'}"  class="instructor-card click bg-white">
+<div *ngIf="instructor" [routerLink]="['/instructor/', instructor.id]" [ngStyle]="{'background-image': 'url('+ awsBucket+ instructor.image +')'}"  class="instructor-card mx-auto click bg-white">
   <div class="instructor-description">
       <h4 class="text-white text-desc fs-5 text-center">{{instructor.bios}}</h4>
       <h4 class="text-white text-desc fs-5 text-center">{{instructor.firstName | titlecase}} {{instructor.lastName | titlecase}}</h4>

@@ -2,15 +2,19 @@
   <div class="d-flex register gap-3">
       <h5 class="col-12 m-0">{{(isAdd)? 'Add':'Edit'}} Class #{{classes?.id}}</h5>
       <div class="flex-fill input-small text-center position-relative">
-        <input class="input-small flex-fill col-12 text-center" formControlName="name" type="text" placeholder="First name" name="firstName">
+        <input class="input-small flex-fill col-12 text-center" formControlName="name" type="text" placeholder="Class Name" name="firstName">
       </div>
 
       <div class="flex-fill input-small text-center position-relative">
-        <input class="input-small flex-fill col-12 text-center" formControlName="code" type="text" placeholder="Last name" name="lastName">
+        <input class="input-small flex-fill col-12 text-center" formControlName="code" type="text" placeholder="Code" name="lastName">
       </div>
 
       <div class="flex-fill input-small text-center position-relative">
-        <input class="input-small col-12 flex-fill text-center" formControlName="value" type="number" placeholder="Email" name="email">
+        <input class="input-small col-12 flex-fill text-center" formControlName="value" type="number" placeholder="Value" name="email">
+      </div>
+
+      <div class="flex-fill col-12 input-small-2 text-center position-relative">
+        <textarea class="input-small-2 col-12 flex-fill text-center" formControlName="description" type="text" placeholder="Description"></textarea>
       </div>
 
       <div class="flex-fill col-12  text-center position-relative">
@@ -18,7 +22,7 @@
         <h6 class="flex-fill col-12 text-center m-1" type="text" placeholder="Date Created" name="lastName"><strong>{{classes?.classTypes?.id}} {{classes?.classTypes?.name}} {{(!classes?.classTypes)? "No Type Assigned": ""}}</strong></h6>
       </div>
 
-      <select (change)="selectClassType($event.target)" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+      <select (change)="selectClassType($event.target)" class="form-select form-select-lg" aria-label=".form-select-lg example">
         <option [value]="''" selected>Change Class Type</option>
         <option [value]="classType.id" *ngFor="let classType of classTypes" >{{classType.id}} {{classType.name}}</option>
       </select>
