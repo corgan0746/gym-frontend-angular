@@ -192,6 +192,7 @@ export class AuthService {
     this.isAuthenticated = false;
     this.router.navigateByUrl('/auth/login');
     this.authSubscription?.unsubscribe();
+    this.profilePicture = undefined;
   }
 
   public actualAuthenticate(){
