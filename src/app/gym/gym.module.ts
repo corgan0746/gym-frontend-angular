@@ -18,6 +18,7 @@ import { MembershipSingleComponent } from './pages/membership-single/membership-
 import { ImageDisplayComponent } from '../share/components/image-display/image-display.component';
 import { TextCarouselComponent } from '../share/components/text-carousel/text-carousel.component';
 import { BackgroundMainComponent } from '../share/components/background-main/background-main.component';
+import { LoaderComponent } from '../share/components/loader/loader.component';
 
 
 @NgModule({
@@ -41,8 +42,8 @@ import { BackgroundMainComponent } from '../share/components/background-main/bac
     MembershipsComponent,
     ImageDisplayComponent,
     TextCarouselComponent,
-    BackgroundMainComponent
-
+    BackgroundMainComponent,
+    LoaderComponent
   ]
 })
 export class GymModule { }

@@ -8,6 +8,7 @@
 <div class="p-4 ">
   <h3 class="max-width-text mx-auto m-0 inter bg-white rounded p-1 shadow-sm text-center p-3">{{instructors.length}} Intructors Found</h3>
 </div>
-<div class=" gap-5 col-8 mx-auto my-4 d-flex justify-content-center flex-wrap">
+<div *ngIf="isLoading" class="col-12 pt-2" ><app-loader/> </div>
+<div *ngIf="!isLoading" class="blur-backdrop-filter p-4 col-12 gap-5 col-8 mx-auto my-4 d-flex justify-content-center flex-wrap">
   <instructor-item *ngFor="let instructor of instructors" [instructor]="instructor"  />
 </div>

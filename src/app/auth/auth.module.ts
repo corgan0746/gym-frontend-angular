@@ -6,6 +6,7 @@ import { LoginPageComponent } from './pages/login/login-page.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TopAuthComponent } from './components/top-auth/top-auth.component';
+import { LoaderComponent } from '../share/components/loader/loader.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TopAuthComponent } from './components/top-auth/top-auth.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoaderComponent
   ]
 })
 export class AuthModule { }

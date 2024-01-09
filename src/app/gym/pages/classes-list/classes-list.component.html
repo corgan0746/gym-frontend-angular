@@ -1,6 +1,6 @@
 <app-top-bar/>
 <background-main/>
-<div class="p-5 mx-auto main-background-picture col-sm-12 col-md-8">
+<div class="p-5 mx-auto blur-backdrop-filter col-sm-12 col-md-8">
 
   <div class="blank-separator"></div>
   <h1 class="details-t2 inter bg-white rounded p-1 shadow-sm text-center max-width-text py-3 mx-auto">Classes Found <span>{{searchedTerm}} : {{classes.length}}</span></h1>
@@ -18,6 +18,7 @@
         <option value="OrderByValueAsc" >Low-to-High</option>
       </select>
   </div>
+  <div *ngIf="isLoading" class="col-12 pt-2" ><app-loader/> </div>
   <div *ngIf="fetchedData" class="classes-list col-12 d-flex flex-column gap-5">
     <class-item *ngFor="let class1 of classes"  [class]="class1" />
   </div>

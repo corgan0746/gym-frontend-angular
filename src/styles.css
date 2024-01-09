@@ -3,9 +3,6 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-
-
 .inter{
   font-family: 'Inter', sans-serif;
 }
@@ -19,6 +16,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 } */
 .thisIsRed{
   color: red;
+}
+
+.blur-backdrop-filter{
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(1px);
 }
 
 @media (max-width:800px){
@@ -64,12 +66,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @keyframes smoothFadeIn {
 0%{
-  /* background-color: rgb(194, 194, 194); */
+  transform: translateY(-20px);
   opacity: 0.3;
 }
 100%{
   opacity: 1;
-  /* background-color: white; */
+  transform: translateY(0px);
 }
 }
 

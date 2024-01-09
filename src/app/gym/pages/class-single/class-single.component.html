@@ -1,6 +1,9 @@
 <app-top-bar/>
 <background-main/>
-<div class="col-11 mx-auto px-2 mt-5">
+<div class="blur-backdrop-filter pt-5 col-11 mx-auto">
+<div *ngIf="isLoading" class="col-12 pt-2" ><app-loader/> </div>
+<div *ngIf="!isLoading" class="col-11 mx-auto px-2">
+
   <div class="d-flex justify-content-between class-item col-12 gap-2">
       <div class="class-img col-lg-6 col-12" [ngStyle]="{'background-image': 'url('+ awsBucket+ class?.image +')'}" ></div>
       <div class="container-right py-2 bg-white rounded">
@@ -56,3 +59,4 @@
 </div>
 
 <div class="blank-separator"></div>
+</div>

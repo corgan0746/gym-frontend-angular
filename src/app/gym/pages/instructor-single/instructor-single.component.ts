@@ -23,6 +23,7 @@ export class InstructorSingleComponent {
   public classes?:Class[];
   public instructor?:Instructor;
   public fetchedData:boolean = false;
+  public isLoading:boolean = false;
   private baseUrl = environment.baseUrl;
   public awsBucket = environment.awsBucket;
 
@@ -35,12 +36,14 @@ export class InstructorSingleComponent {
   }
 
   public getClass(){
+    this.isLoading = true;
     const subscription = this.activeRoute.params.pipe(
     switchMap((id:Params) => this.gymService.generateGetObservable<Instructor>(`${this.baseUrl}/api/instructor/${id['id']}`))
     )
     .subscribe({
       error:(err: HttpErrorResponse)=> {
         subscription.unsubscribe();
+        this.isLoading = false;
         this.router.navigateByUrl("/instructors");
       },
       next:(res:Instructor) => {
@@ -57,9 +60,11 @@ export class InstructorSingleComponent {
       next:(res:SearchResponseInstructor)=> {
         this.classes = res._embedded.classes;
         subscription.unsubscribe();
+        this.isLoading = false;
       },
       error:(err:HttpErrorResponse) =>{
         subscription.unsubscribe();
+        this.isLoading = false;
       }
     })
   }

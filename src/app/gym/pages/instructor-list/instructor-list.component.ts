@@ -15,6 +15,7 @@ export class InstructorListComponent {
   public instructors:Instructor[] = [];
   public fetchedData:boolean = false;
   private baseUrl = environment.baseUrl;
+  public isLoading:boolean = false;
 
   public get allClasses(){
     return this.instructors;
@@ -25,15 +26,18 @@ export class InstructorListComponent {
   }
 
   public getClasses(){
+    this.isLoading = true;
     const subscription = this.gymService.generateGetObservable<SearchResponseInstructor>(`${this.baseUrl}/api/instructor`)
     .subscribe({
       error:(err: HttpErrorResponse)=> {
         subscription.unsubscribe();
+        this.isLoading = false;
       },
       next:(res) => {
         this.instructors =  res._embedded.instructor;
         this.fetchedData = true;
         subscription.unsubscribe();
+        this.isLoading = false;
       }
     })
   }

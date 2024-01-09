@@ -3,7 +3,7 @@ import { GymService } from '../../service/gym.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Class, ClassTypes, SearchResponse } from '../../interfaces/class.interface';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, delay } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -23,6 +23,7 @@ export class ClassesListComponent implements OnInit {
   public classes:Class[] = [];
   public fetchedData:boolean = false;
   public classTypes:ClassTypes[]=[];
+  public isLoading:boolean = false;
 
   public get allClasses(){
     return this.classes;
@@ -48,30 +49,35 @@ export class ClassesListComponent implements OnInit {
   }
 
   public getClasses(mode:string){
+    this.isLoading = true;
     const subscription = this.gymService.getAllClasses(mode)
     .subscribe({
       error:(err: HttpErrorResponse)=> {
         subscription.unsubscribe();
+        this.isLoading = false;
       },
       next:(res:SearchResponse) => {
         this.classes =  res._embedded.classes;
         this.fetchedData = true;
         subscription.unsubscribe();
+        this.isLoading = false;
       }
     })
   }
 
   public searchClasses(query:string, mode:string){
-
+    this.isLoading = true;
     const subscription = this.gymService.searchClasses(query, mode)
     .subscribe({
       error:(err: HttpErrorResponse)=> {
         subscription.unsubscribe();
+        this.isLoading = false;
       },
       next:(res:SearchResponse) => {
         this.classes =  res._embedded.classes;
         this.fetchedData = true;
         subscription.unsubscribe();
+        this.isLoading = false;
       }
     })
 

@@ -8,7 +8,7 @@ import { AuthService } from '../../service/auth.service';
 })
 export class LoginPageComponent {
 
-  private authService = inject(AuthService)
+  public authService = inject(AuthService)
   private fb = inject(FormBuilder);
 
   public loginAttempt:boolean = false;
@@ -27,14 +27,11 @@ export class LoginPageComponent {
   }
 
   public submit(e:any){
+    console.log("clicked login");
     this.loginAttempt = true;
     const {email, password} = this.myForm.value;
     let res =  this.authService.authenticateFirebase({email, password})
 
-  }
-
-  public actualSendToken(){
-    this.authService.actualAuthenticate();
   }
 
   public getProducts(){

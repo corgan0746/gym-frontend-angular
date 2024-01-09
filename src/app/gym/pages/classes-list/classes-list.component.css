@@ -38,6 +38,7 @@
   width: 370px;
 }
 
+
 @media (max-width:760px){
   .max-width-text{
     width: auto;

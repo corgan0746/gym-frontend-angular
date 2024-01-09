@@ -22,8 +22,7 @@
               <div class="col-12 text-center my-2">Or</div>
               <div class="col-12 text-center my-2"><a [routerLink]="['/auth/register']"  >Not registered?, Do it Here</a></div>
               <div class="small-blank-space"></div>
-              <div class="d-block col-12 text-center"><button class="btn btn-primary btn-lg" type="submit" >Login</button></div>
-
+              <div class="d-block col-12 text-center"><div *ngIf="authService.isAuthenticating" class="spinner-login mx-auto"></div><button *ngIf="!authService.isAuthenticating"  class="btn btn-primary btn-lg" type="submit" >Login</button></div>
           </form>
       </div>
   </div>

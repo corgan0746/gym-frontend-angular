@@ -1,7 +1,7 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { CustomerReference, LoginError, User, UserCred, UserRegister, UserResponse } from '../interfaces/User';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Observable, Subscription, catchError, from, interval, of, switchMap, tap, timer } from 'rxjs';
+import { Observable, Subscription, catchError, delay, from, interval, of, switchMap, tap, timer } from 'rxjs';
 import { FirebaseError, initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Router } from '@angular/router';
@@ -21,6 +21,7 @@ export class AuthService {
   private accessToken:string | null = null;
   private baseUrl = environment.baseUrl;
   public profilePicture?:string;
+  public isAuthenticating:boolean = false;
 
   private currentError:LoginError;
   private user = signal<User | null>(null);
@@ -91,14 +92,15 @@ export class AuthService {
   }
 
   public async authenticateFirebase(user1:UserCred){
-
+    this.isAuthenticating = true;
     this.isAuthError.set(false);
 
     const subscription = from(signInWithEmailAndPassword(this.auth, user1.email, user1.password))
-    .pipe(
+    .pipe( 
       catchError((res:FirebaseError) => {
         this.user.set(null);
         this.isAuthenticated = false;
+        this.isAuthenticating = false;
         this.isAuthError.set(true);
         this.currentError.code = "";
         this.currentError.message = res.code;
@@ -163,6 +165,7 @@ export class AuthService {
         if(res.status === 500) return of();
         this.user.set(null);
         this.isAuthenticated = false;
+        this.isAuthenticating = false;
         this.isAuthError.set(true);
         this.currentError.code = res.status;
         this.currentError.message = res.statusText;
@@ -176,6 +179,7 @@ export class AuthService {
       if(res?.image) this.profilePicture = res.image;
       this.isAuthError.set(false);
       this.isAuthenticated = true;
+      this.isAuthenticating = false;
       subscription.unsubscribe();
       this.startAuthSubscription();
       if(res.privileges){

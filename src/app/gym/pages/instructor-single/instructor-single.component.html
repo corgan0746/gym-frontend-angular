@@ -1,6 +1,7 @@
 <app-top-bar/>
 <background-main/>
-<div class="col-sm-10 col-12 mx-auto my-3">
+<div *ngIf="isLoading" class="col-12 pt-2" ><app-loader/> </div>
+<div *ngIf="!isLoading" class="addFadeIn blur-backdrop-filter pt-5 pb-1 col-sm-10 col-12 mx-auto mb-3">
   <div class="container-flex justify-content-center col-12 col-lg-10 col-md-8 mx-auto">
     <div class="instructor-card" [ngStyle]="{'background-image': 'url('+ awsBucket+ instructor?.image +')'}" ></div>
     <div class="mx-4 bg-dark text-white p-2 rounded">

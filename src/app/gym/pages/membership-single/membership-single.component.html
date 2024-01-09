@@ -1,24 +1,27 @@
 <app-top-bar/>
 <background-main/>
-<div *ngIf="membership" class="outside-frame col-12 col-sm-9 mx-auto rounded shadow mt-0 mt-sm-5">
-  <div class="left-side-photo" [ngStyle]="{'background-image': 'url('+ awsBucket+ membership.image +')'}"  ></div>
-  <div class="right-side-info font-inter">
+<div class="blur-backdrop-filter col-12 col-sm-9 pt-0 pt-sm-5 mx-auto">
+  <div *ngIf="isLoading" class="col-12 pt-2" ><app-loader/> </div>
+  <div *ngIf="(membership && !isLoading)" class="addFadeIn outside-frame col-12 col-sm-9 mx-auto rounded shadow">
+    <div class="left-side-photo" [ngStyle]="{'background-image': 'url('+ awsBucket+ membership.image +')'}"  ></div>
+    <div class="right-side-info font-inter">
 
-    <h2 class="text-center">{{membership.name}}</h2>
-    <h6 class="text-center my-2">{{membership.code}}</h6>
-    <h4 class="text-center my-4">30 Days</h4>
-    <h3 class="text-center value" >£{{membership.value}}</h3>
-    <div class="button-frame text-center my-4">
-      <button (click)="buyMembership()" class="actual-button bg-primary btn btn-lg border border-white text-white">Subscribe</button>
+      <h2 class="text-center">{{membership.name}}</h2>
+      <h6 class="text-center my-2">{{membership.code}}</h6>
+      <h4 class="text-center my-4">30 Days</h4>
+      <h3 class="text-center value" >£{{membership.value}}</h3>
+      <div class="button-frame text-center my-4">
+        <button (click)="buyMembership()" class="actual-button bg-primary btn btn-lg border border-white text-white">Subscribe</button>
+      </div>
     </div>
+
   </div>
+  <div *ngIf="gymService.bookingError" class="output-message red col-lg-3  col-md-8 col-sm-10 col-12 rounded mx-auto text-center p-1 inter">{{gymService.bookingError}}</div>
 
-</div>
-<div *ngIf="gymService.bookingError" class="output-message red col-lg-3  col-md-8 col-sm-10 col-12 rounded mx-auto text-center p-1 inter">{{gymService.bookingError}}</div>
-
-<div class="col-9 mx-auto">
-  <h2 class="font-arvo text-center my-3 bg-white rounded"> Classes Included</h2>
-</div>
-<div *ngIf="classes" class="classes-list col-9 mx-auto">
-  <class-item *ngFor="let class of classes" [class]="class"   />
+  <div class="col-9 mx-auto">
+    <h2 class="font-arvo text-center my-3 bg-white rounded"> Classes Included</h2>
+  </div>
+  <div *ngIf="classes" class="classes-list col-9 mx-auto">
+    <class-item *ngFor="let class of classes" [class]="class"   />
+  </div>
 </div>

@@ -3,7 +3,7 @@ import { GymService } from '../../service/gym.service';
 import { Class, Timeslot } from '../../interfaces/class.interface';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { switchMap } from 'rxjs';
+import { delay, switchMap } from 'rxjs';
 import { Instructor } from '../../interfaces/instructor.interface';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/auth/service/auth.service';
@@ -34,6 +34,7 @@ export class ClassSingleComponent {
 
   public currentDate = new Date();
 
+  public isLoading:boolean = false;
 
   constructor(){
     this.getClass();
@@ -45,16 +46,18 @@ export class ClassSingleComponent {
   }
 
   public getClass(){
+    this.isLoading = true;
     const subscription = this.activeRoute.params.pipe(
       switchMap((id:Params) => this.gymService.getSingleClass(id['id']) )
     )
     .subscribe({
       error:(err: HttpErrorResponse)=> {
         subscription.unsubscribe();
+        this.isLoading = false;
         this.router.navigateByUrl("/classes");
       },
       next:(res:Class) => {
-
+        this.isLoading = false;
         this.class = res;
         if( this.class.timeslots && this.class.timeslots.length > 0){
 

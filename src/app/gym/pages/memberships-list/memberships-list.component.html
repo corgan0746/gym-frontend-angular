@@ -1,8 +1,12 @@
 <app-top-bar/>
 <background-main/>
-<div class="p-4">
-  <h3 class=" mx-auto m-0 inter bg-white text-center rounded auto-width py-3 p-1 shadow-sm">{{memberships.length}} Memberships Available</h3>
-</div>
-<div class=" gap-5 col-12 col-lg-8 mx-auto my-4 d-flex justify-content-center flex-wrap">
-  <membership-item *ngFor="let membership of memberships" [membership]="membership" [isAccount]="false"  />
+
+<div class="p-1 blur-backdrop-filter col-12 col-lg-8 mx-auto">
+  <div class="p-4">
+    <h3 class=" mx-auto m-0 inter bg-white text-center rounded auto-width py-3 p-1 shadow-sm">{{memberships.length}} Memberships Available</h3>
+  </div>
+  <div *ngIf="isLoading" class="col-12 pt-2" ><app-loader/> </div>
+  <div *ngIf="!isLoading" class="addFadeIn gap-5 col-12 col-lg-8 mx-auto my-4 d-flex justify-content-center flex-wrap">
+    <membership-item *ngFor="let membership of memberships" [membership]="membership" [isAccount]="false"  />
+  </div>
 </div>
